@@ -69,7 +69,7 @@ int _get_osc_freq(enum time_unit unit){
   return 0;
 }
 
-void _wait_cycles(int iCycles){
+void wait_cycles(int iCycles){
   // Wait for iCycles, note each loop takes 2 clock cycles
   for (volatile int i = 0; i < iCycles; i++){}
 }
@@ -81,7 +81,7 @@ void delay_s(int iSeconds){
   int freq = _get_osc_freq(unit);
 
   // Find number of cycles needed to wait, and wait
-  _wait_cycles(freq * iSeconds);
+  wait_cycles(freq * iSeconds);
 
   // Return
   return;
@@ -94,7 +94,7 @@ void delay_ms(int iMilliseconds){
     int freq = _get_osc_freq(unit);
 
     // Find number of cycles needed to wait, and wait
-    _wait_cycles((freq * iMilliseconds));
+    wait_cycles((freq * iMilliseconds));
   
     // Return
     return;
@@ -107,7 +107,7 @@ void delay_us(int iMicroseconds){
   int freq = _get_osc_freq(unit);
 
   // Find number of cycles needed to wait, and wait
-  _wait_cycles(freq * iMicroseconds);
+  wait_cycles(freq * iMicroseconds);
 
   // Return
   return;
