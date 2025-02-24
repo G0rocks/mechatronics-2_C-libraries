@@ -8,3 +8,8 @@
 * Program can delay operations with a given time interval (e.g. 100ms)
 */
 
+void delay_s(int iSeconds);
+
+void delay_ms(int iMilliseconds);
+
+void delay_us(int iMicroseconds);
