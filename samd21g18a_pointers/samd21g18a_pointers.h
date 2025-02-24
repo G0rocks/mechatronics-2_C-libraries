@@ -8,6 +8,10 @@ Pointers for use with the arduino MKR NB 1500 using the processor SAMD21G18A.
 Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
 */
 
+// Include guard
+#ifndef _samd21g18a_pointers_
+#define _samd21g18a_pointers_
+
 // DEFINITIONS
 //##############################################################
 // AHB-APB Bridge A
@@ -23,13 +27,31 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 // SYSCTRL - System Controller
 //-------------------------------------
 #define SYSCTRL_ptr ((unsigned char*) 0x40000800) // See product mapping, chap 9
+#define SYSCTRL_INTENCLR_ptr ((unsigned int*) (SYSCTRL_ptr + 0x00)) // chap 17.8.1
+#define SYSCTRL_INTENSET_ptr ((unsigned int*) (SYSCTRL_ptr + 0x04)) // chap 17.8.2
+#define SYSCTRL_INTFLAG_ptr ((unsigned int*) (SYSCTRL_ptr + 0x08)) // chap 17.8.3
+#define SYSCTRL_PCLKSR_ptr ((unsigned int*) (SYSCTRL_ptr + 0x0C)) // chap 17.8.4
+#define SYSCTRL_XOSC_ptr ((unsigned short*) (SYSCTRL_ptr + 0x10)) // chap 17.8.5
+#define SYSCTRL_XOSC32k_ptr ((unsigned short*) (SYSCTRL_ptr + 0x14)) // chap 17.8.6
 #define SYSCTRL_OSC32K_ptr ((unsigned int*) (SYSCTRL_ptr + 0x18)) // chap 17.8.7
-#define SYSCTRL_OSCULP32K_ptr ((unsigned int*) (SYSCTRL_ptr + 0x1C)) // chap 17.8.8
+#define SYSCTRL_OSCULP32K_ptr ((unsigned char*) (SYSCTRL_ptr + 0x1C)) // chap 17.8.8
 #define SYSCTRL_OSC8M_ptr ((unsigned int*) (SYSCTRL_ptr + 0x20)) // chap 17.8.9
-#define SYSCTRL_DFLL48M_ptr ((unsigned int*) (SYSCTRL_ptr + )) // chap 17.8.
-#define SYSCTRL_FDPLL96M_ptr ((unsigned int*) (SYSCTRL_ptr + )) // chap 17.8.
-#define SYSCTRL_XOSC32k_ptr ((unsigned int*) (SYSCTRL_ptr + 0x14)) // chap 17.8.6
-#define SYSCTRL_XOSC_ptr ((unsigned int*) (SYSCTRL_ptr + 0x10)) // chap 17.8.5
+#define SYSCTRL_DFLLCTRL_ptr ((unsigned short*) (SYSCTRL_ptr + 0x24)) // chap 17.8.10
+#define SYSCTRL_DFLLVAL_ptr ((unsigned int*) (SYSCTRL_ptr + 0x28)) // chap 17.8.11
+#define SYSCTRL_DFLLMUL_ptr ((unsigned int*) (SYSCTRL_ptr + 0x2C)) // chap 17.8.12
+#define SYSCTRL_DFLLSYNC_ptr ((unsigned char*) (SYSCTRL_ptr + 0x30)) // chap 17.8.13
+#define SYSCTRL_BOD33_ptr ((unsigned int*) (SYSCTRL_ptr + 0x34)) // chap 17.8.14
+#define SYSCTRL_VREG_ptr ((unsigned short*) (SYSCTRL_ptr + 0x3C)) // chap 17.8.15
+#define SYSCTRL_VREF_ptr ((unsigned int*) (SYSCTRL_ptr + 0x40)) // chap 17.8.16
+#define SYSCTRL_DPLLCTRLA_ptr ((unsigned char*) (SYSCTRL_ptr + 0x44)) // chap 17.8.17
+#define SYSCTRL_DPLLRATIO_ptr ((unsigned int*) (SYSCTRL_ptr + 0x48)) // chap 17.8.18
+#define SYSCTRL_DPLLCTRLB_ptr ((unsigned int*) (SYSCTRL_ptr + 0x4C)) // chap 17.8.19
+#define SYSCTRL_STATUS_ptr ((unsigned char*) (SYSCTRL_ptr + 0x50)) // chap 17.8.20
+
+
+
+//#define SYSCTRL_DFLL48M_ptr ((unsigned int*) (SYSCTRL_ptr + )) // chap 17.8.
+//#define SYSCTRL_FDPLL96M_ptr ((unsigned int*) (SYSCTRL_ptr + )) // chap 17.8.
 
 // GCLK - Generic Clock Controller
 //-------------------------------------
@@ -57,3 +79,5 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 // AHB-APB Bridge C
 //##############################################################
 
+
+#endif // _samd21g18a_pointers_
