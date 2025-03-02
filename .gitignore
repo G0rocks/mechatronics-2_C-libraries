@@ -46,8 +46,17 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
+
+# PlatformIO files
+*.ini
+*.json
+
+# Other files
 .tmp_versions/
 modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+delay/include/README
+delay/lib/README
+delay/test/README

@@ -22,7 +22,8 @@ External oscillators:
 
 // INCLUDE
 #include "delay.h"
-#include "../../samd21g18a_pointers/samd21g18a_pointers.h" // SAMD21G18A pointers
+#include "../../samd21g18a/samd21g18a_pins.h" // SAMD21G18A pointers
+#include "../../samd21g18a/samd21g18a_pointers.h" // SAMD21G18A pointers
 
 enum time_unit {second, millisecond, microsecond};
 
@@ -113,24 +114,25 @@ void delay_us(int iMicroseconds){
   return;
 }
 
-
 // MAIN FUNCTION
 int main(void){
-  *PORT_A_DIR_SET_ptr = *PORT_A_DIR_SET_ptr | 1 << 20;
+  // Set PIN PA20 as output
+  set_pin_as_output(PA20);
+  //*PORT_A_DIR_SET_ptr = *PORT_A_DIR_SET_ptr | 1 << 20;
 
   // Main loop
   while(1) {
     // Set PIN HIGH and test each delay
-    *PORT_A_OUT_SET_ptr = *PORT_A_OUT_SET_ptr | 1 << 20;
-    //delay_s(1);
+    set_pin_HIGH(PA20);
+    delay_s(1);
     //delay_ms(1000);
-    delay_us(1000000);
+    //delay_us(1000000);
 
     // Set PIN LOW
-    *PORT_A_OUT_CLR_ptr = *PORT_A_OUT_CLR_ptr | 1 << 20;
-    //delay_s(1);
+    set_pin_LOW(PA20);
+    delay_s(1);
     //delay_ms(1000);
-    delay_us(1000000);
+    //delay_us(1000000);
   }
   return 0;
 }

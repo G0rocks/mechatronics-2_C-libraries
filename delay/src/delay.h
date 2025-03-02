@@ -8,6 +8,10 @@
 * Program can delay operations with a given time interval (e.g. 100ms)
 */
 
+// Include guard
+#ifndef _delay_
+#define _delay_
+
 // Wait num_cycles number of clock cycles
 void wait_cycles(int num_cycles);
 
@@ -19,3 +23,5 @@ void delay_ms(int iMilliseconds);
 
 // Delay for iMicroseconds many microseconds
 void delay_us(int iMicroseconds);
+
+#endif
