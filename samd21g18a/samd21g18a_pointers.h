@@ -64,16 +64,23 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 // AHB-APB Bridge B
 //##############################################################
 
-// PORT - Configure peripheral port A, chapter 12 and 23.7, https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
+// PORT A - Configure peripheral port A, chapter 12 and 23.7, https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
 #define PORT_A_ptr ((unsigned char*) 0x41004400) // PORT A base address, table 12-1
+#define PORT_A_OFFSET ((unsigned int) 0x00)    // PORT A is 0x00 bytes away from PORT A
 #define PORT_A_DIR_ptr  ((unsigned int*)(PORT_A_ptr)) // Pin direction register (input/output), 23.8.1
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
 #define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr  + 0x10))     // Output register, 23.8.5 for PORT A
 #define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr  + 0x14)) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_SET_ptr ((unsigned int*) (PORT_A_ptr  + 0x18)) // Output Set Register, 23.8.7
 #define PORT_A_PINCFG_ptr ((unsigned int*)(PORT_A_ptr  + 0x40)) // Pin Configuration Register, 23.8.13
-
-
+// PORT B
+#define PORT_B_offset ((unsigned int) 0x80) // PORT B is 0x80 bytes away from PORT A
+//#define PORT_B_DIR_ptr  ((unsigned int*) PORT_A_DIR_ptr + PORT_B_spacing) // Chap, 23.8.1
+//#define PORT_B_DIR_SET_ptr ((unsigned int*)  PORT_A_DIR_SET_ptr + PORT_B_spacing) // Pin direction set register, 23.8.3
+//#define PORT_B_OUT_ptr ((unsigned int*)  PORT_A_OUT_ptr + PORT_B_spacing)      // Output register, 23.8.5 for PORT A
+//#define PORT_B_OUT_CLR_ptr ((unsigned int*)  PORT_A_OUT_CLR_ptr + PORT_B_spacing) // Output Clear Register, 23.8.6
+//#define PORT_B_OUT_SET_ptr ((unsigned int*)  PORT_A_OUT_SET_ptr + PORT_B_spacing) // Output Set Register, 23.8.7
+//#define PORT_B_PINCFG_ptr  ((unsigned int*)  PORT_A_PINCFG_ptr + PORT_B_spacing) // Pin Configuration Register, 23.8.13
 
 //##############################################################
 // AHB-APB Bridge C
