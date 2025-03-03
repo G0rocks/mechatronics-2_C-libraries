@@ -122,17 +122,28 @@ int main(void){
 
   // Main loop
   while(1) {
-    // Set PIN HIGH and test each delay
-    set_pin_HIGH(PA20);
-    delay_s(1);
-    //delay_ms(1000);
-    //delay_us(1000000);
+    unsigned int n = 1000;
+    // Loop to fade in
+    for(int i = 0; i<n ;i++){
+      // Set PIN HIGH and test each delay
+      set_pin_HIGH(PA20);
+      delay_us(i);
+  
+      // Set PIN LOW
+      set_pin_LOW(PA20);
+      delay_us(n-i);
+      }
 
-    // Set PIN LOW
-    set_pin_LOW(PA20);
-    delay_s(1);
-    //delay_ms(1000);
-    //delay_us(1000000);
+    // Loop to fade out
+    for(int i = 0; i<n ;i++){
+      // Set PIN HIGH and test each delay
+      set_pin_HIGH(PA20);
+      delay_us(n - i);
+  
+      // Set PIN LOW
+      set_pin_LOW(PA20);
+      delay_us(i);
+      }
   }
   return 0;
 }
