@@ -23,7 +23,7 @@ typedef struct {
 } pin;
 
 // Define pins
-pin PA20 = {PORT_A_OFFSET, 20};
+#define PA20 ((pin) {PORT_A_OFFSET, 20})
 
 
 // PIN FUNCTIONS

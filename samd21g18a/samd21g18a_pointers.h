@@ -12,7 +12,13 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #ifndef _samd21g18a_pointers_
 #define _samd21g18a_pointers_
 
+#include "samd21g18a_registers.h"
+
 // DEFINITIONS
+// Format for register
+// #define NAME ((register_type) {char num_bytes, 0xADDRESS) // Description
+// Format for register pointer
+// #define NAME_ptr ((unsigned char/short/int*) 0xADDRESS) // Description
 //##############################################################
 // AHB-APB Bridge A
 //##############################################################
@@ -22,6 +28,9 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 //-------------------------------------
 #define PM_ptr ((unsigned char*) 0x40000400) // See product mapping AHB-APB bridge A. Chapter 16.8.9 on the APBB Mask (Port A is on bridge B on APB, chapter 9), the clock to the PORT is ENABLED by default.
 #define PM_APBBMASK_ptr ((unsigned int*)(PM_ptr + 0x1C)) // APBBMASK register address, 16.8.9
+//#define PM_APBCMASK_ptr ((unsigned int*)(PM_ptr + 0x20)) // APBBMASK register address, 16.8.10
+#define PM_APBCMASK ((register_type) {(unsigned char) 4, (unsigned int) (PM_ptr + 0x20)}) // APBBMASK register address, 16.8.10
+
 
 
 // SYSCTRL - System Controller
@@ -66,12 +75,15 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 
 // PORT A - Configure peripheral port A, chapter 12 and 23.7, https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
 #define PORT_A_ptr ((unsigned char*) 0x41004400) // PORT A base address, table 12-1
+#define PORT_A ((unsigned int) 0x41004400) // PORT A base address, table 12-1
 #define PORT_A_OFFSET ((unsigned int) 0x00)    // PORT A is 0x00 bytes away from PORT A
 #define PORT_A_DIR_ptr  ((unsigned int*)(PORT_A_ptr)) // Pin direction register (input/output), 23.8.1
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
 #define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr  + 0x10))     // Output register, 23.8.5 for PORT A
 #define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr  + 0x14)) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_SET_ptr ((unsigned int*) (PORT_A_ptr  + 0x18)) // Output Set Register, 23.8.7
+#define PORT_A_OUT_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x18)}) // APBBMASK register address, 16.8.10
+
 #define PORT_A_PINCFG_ptr ((unsigned int*)(PORT_A_ptr  + 0x40)) // Pin Configuration Register, 23.8.13
 // PORT B
 #define PORT_B_offset ((unsigned int) 0x80) // PORT B is 0x80 bytes away from PORT A
