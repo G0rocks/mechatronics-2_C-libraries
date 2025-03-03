@@ -29,8 +29,9 @@ enum time_unit {second, millisecond, microsecond};
 
 // FUNCTION DECLARATIONS
 // Get oscillator frequency
-int _get_osc_freq(enum time_unit unit){
-  // Read which clocks in use, return the highest frequency in use in Hz for seconds, kHz for ms and MHz for us
+// CURRENTLY ONLY VALID FOR 8MHz OSCILLATOR
+int _get_osc_freq_halved(enum time_unit unit){
+  // Read which clocks in use, return half of the highest frequency in use in Hz for seconds, kHz for ms and MHz for us
   // Note the waiting for loop takes 2 clock cycles per loop cycle so the returned frequency is half of the clock frequency
   // Check internal oscillators
   // Check OSC32K  
@@ -79,7 +80,7 @@ void wait_cycles(int iCycles){
 void delay_s(int iSeconds){
   // Get highest frequency in use
   enum time_unit unit = second;
-  int freq = _get_osc_freq(unit);
+  int freq = _get_osc_freq_halved(unit);
 
   // Find number of cycles needed to wait, and wait
   wait_cycles(freq * iSeconds);
@@ -92,7 +93,7 @@ void delay_s(int iSeconds){
 void delay_ms(int iMilliseconds){
     // Get highest frequency in use
     enum time_unit unit = millisecond;
-    int freq = _get_osc_freq(unit);
+    int freq = _get_osc_freq_halved(unit);
 
     // Find number of cycles needed to wait, and wait
     wait_cycles((freq * iMilliseconds));
@@ -105,7 +106,7 @@ void delay_ms(int iMilliseconds){
 void delay_us(int iMicroseconds){
   // Get highest frequency in use
   enum time_unit unit = microsecond;
-  int freq = _get_osc_freq(unit);
+  int freq = _get_osc_freq_halved(unit);
 
   // Find number of cycles needed to wait, and wait
   wait_cycles(freq * iMicroseconds);
