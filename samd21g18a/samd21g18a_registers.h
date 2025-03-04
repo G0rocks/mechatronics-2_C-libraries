@@ -114,6 +114,7 @@ char register_bits_write(register_type reg, char bit_num, char num_bits, int val
 
 // register bit write. Writes custom value to the given register, the value is cast to the register size
 // WARNING: This function overwrites the entire register, regardless of the previous values. USE WITH CAUTION!
+// CURRENTLY NOT WORKING!
 char register_write_whole(register_type reg, int value) {
     // Writes the given value to the given register
     // reg: register struct
@@ -132,6 +133,7 @@ char register_write_whole(register_type reg, int value) {
         default:
             return -1;  // An error occured, number of bytes not supported, returning -1
     }
+    return 0;   
 }
 
 #endif

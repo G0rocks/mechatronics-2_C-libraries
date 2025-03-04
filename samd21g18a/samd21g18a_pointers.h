@@ -26,11 +26,11 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 
 // PM - Power manager
 //-------------------------------------
-#define PM_ptr ((unsigned char*) 0x40000400) // See product mapping AHB-APB bridge A. Chapter 16.8.9 on the APBB Mask (Port A is on bridge B on APB, chapter 9), the clock to the PORT is ENABLED by default.
+#define PM_ptr ((unsigned char*) 0x40000400) // See product mapping AHB-APB bridge A
+#define PM ((unsigned int) 0x40000400) // See product mapping AHB-APB bridge A
 #define PM_APBBMASK_ptr ((unsigned int*)(PM_ptr + 0x1C)) // APBBMASK register address, 16.8.9
-//#define PM_APBCMASK_ptr ((unsigned int*)(PM_ptr + 0x20)) // APBBMASK register address, 16.8.10
-#define PM_APBCMASK ((register_type) {(unsigned char) 4, (unsigned int) (PM_ptr + 0x20)}) // APBBMASK register address, 16.8.10
-
+#define PM_APBCMASK_ptr ((unsigned int*)(PM_ptr + 0x20)) // APBBMASK register address, 16.8.10
+#define PM_APBCMASK ((register_type) {(unsigned char) 4, (unsigned int) (PM + 0x20)}) // APBBMASK register address, 16.8.10
 
 
 // SYSCTRL - System Controller
@@ -79,8 +79,9 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A_OFFSET ((unsigned int) 0x00)    // PORT A is 0x00 bytes away from PORT A
 #define PORT_A_DIR_ptr  ((unsigned int*)(PORT_A_ptr)) // Pin direction register (input/output), 23.8.1
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
-#define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr  + 0x10))     // Output register, 23.8.5 for PORT A
-#define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr  + 0x14)) // Output Clear Register, 23.8.6
+#define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr + 0x10))     // Output register, 23.8.5 for PORT A
+#define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr + 0x14)) // Output Clear Register, 23.8.6
+#define PORT_A_OUT_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x14)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_SET_ptr ((unsigned int*) (PORT_A_ptr  + 0x18)) // Output Set Register, 23.8.7
 #define PORT_A_OUT_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x18)}) // APBBMASK register address, 16.8.10
 
@@ -94,9 +95,19 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 //#define PORT_B_OUT_SET_ptr ((unsigned int*)  PORT_A_OUT_SET_ptr + PORT_B_spacing) // Output Set Register, 23.8.7
 //#define PORT_B_PINCFG_ptr  ((unsigned int*)  PORT_A_PINCFG_ptr + PORT_B_spacing) // Pin Configuration Register, 23.8.13
 
+// USB - Universal Serial Bus, chapter 32
+#define USB ((unsigned int) 0x41005000) // USB base address, chap. 9 product mapping
+
+
 //##############################################################
 // AHB-APB Bridge C
 //##############################################################
+#define TC3 ((unsigned int)  0x42002C00) // See product mapping AHB-APB bridge C.
+#define TC3_ptr ((unsigned char*) 0x42002C00) // See product mapping AHB-APB bridge C.
+#define TC3_CTRLA ((register_type) {(unsigned char) 2, (unsigned int) (TC3 + 0x00)}) // Control A register, 30.8.1
+
+
+
 
 
 #endif // _samd21g18a_pointers_
