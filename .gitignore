@@ -118,6 +118,11 @@
 *.ini
 *.json
 
+# Doxygen files
+*.html
+*.css
+*.js
+
 # Other files
 .tmp_versions/
 modules.order
