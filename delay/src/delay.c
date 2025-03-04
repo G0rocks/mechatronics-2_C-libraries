@@ -123,11 +123,11 @@ int main(void){
 
   // Main loop
   while(1) {
-    unsigned int n = 1000;
+    unsigned int n = 500;
     // Loop to fade in
     for(int i = 0; i<n ;i++){
       // Set PIN HIGH and test each delay
-      set_pin_HIGH(PA20);
+      register_bit_write_HIGH(PORT_A_OUT_SET, 20);
       delay_us(i);
   
       // Set PIN LOW
