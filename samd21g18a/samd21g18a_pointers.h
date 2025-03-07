@@ -79,11 +79,28 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A_OFFSET ((unsigned int) 0x00)    // PORT A is 0x00 bytes away from PORT A
 #define PORT_A_DIR_ptr  ((unsigned int*)(PORT_A_ptr)) // Pin direction register (input/output), 23.8.1
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
+#define PORT_A_DIR_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x08)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr + 0x10))     // Output register, 23.8.5 for PORT A
 #define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr + 0x14)) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x14)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_SET_ptr ((unsigned int*) (PORT_A_ptr  + 0x18)) // Output Set Register, 23.8.7
 #define PORT_A_OUT_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x18)}) // APBBMASK register address, 16.8.10
+#define PORT_A_PMUX_PINS_0_1 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x30)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_2_3 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x31)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_4_5 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x32)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_6_7 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x33)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_8_9 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x34)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_10_11 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x35)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_12_13 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x36)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_14_15 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x37)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_16_17 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x38)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_18_19 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x39)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_20_21 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3A)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_22_23 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3B)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_24_25 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3C)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_26_27 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3D)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_28_29 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3E)}) // Peripheral Multiplexing, 23.8.12
+#define PORT_A_PMUX_PINS_30_31 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3F)}) // Peripheral Multiplexing, 23.8.12
 
 #define PORT_A_PINCFG_ptr ((unsigned int*)(PORT_A_ptr  + 0x40)) // Pin Configuration Register, 23.8.13
 // PORT B
@@ -102,6 +119,83 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 //##############################################################
 // AHB-APB Bridge C
 //##############################################################
+
+// SERCOM OFFSETS- Serial Communication Interface, chapter 25
+#define SERCOM_CTRLA_OFFSET ((unsigned int) 0x00) // Control A register, 26.7
+#define SERCOM_CTRLB_OFFSET ((unsigned int) 0x04) // Control B register, 26.7
+#define SERCOM_BAUD_OFFSET ((unsigned int) 0x0C) // Baud rate register, 26.7
+#define SERCOM_RXPL_OFFSET ((unsigned int) 0x0E) // Receive pulse length register, 26.7
+#define SERCOM_INTENCLR_OFFSET ((unsigned int) 0x14) // Interrupt enable clear register, 26.7
+#define SERCOM_INTENSET_OFFSET ((unsigned int) 0x16) // Interrupt enable set register, 26.7
+#define SERCOM_INTFLAG_OFFSET ((unsigned int) 0x18) // Interrupt flag status and clear register, 26.7
+#define SERCOM_STATUS_OFFSET ((unsigned int) 0x1A) // Status register, 26.7
+#define SERCOM_SYNCBUSY_OFFSET ((unsigned int) 0x1C) // Synchronization busy register, 26.7
+#define SERCOM_DATA_OFFSET ((unsigned int) 0x28) // Data register, 26.7
+#define SERCOM_DBGCTRL_OFFSET ((unsigned int) 0x30) // Debug control register, 26.7
+
+// SERCOM0 - Serial Communication Interface 3, chapter 25
+#define SERCOM0 ((unsigned int) 0x42000800) // See product mapping AHB-APB bridge C.
+#define SERCOM0_ptr ((unsigned char*) SERCOM0) // See product mapping AHB-APB bridge C.
+#define SERCOM0_CTRLA ((register_type) {(unsigned char) 4, (unsigned int)(SERCOM0 + SERCOM_CTRLA_OFFSET)}) // Output Clear Register, 23.8.6
+#define SERCOM0_CTRLB ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM0 + SERCOM_CTRLB_OFFSET)}) // Control B register, 26.7
+#define SERCOM0_BAUD ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM0 + SERCOM_BAUD_OFFSET)}) // Baud rate register, 26.7
+#define SERCOM0_RXPL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM0 + SERCOM_RXPL_OFFSET)}) // Receive pulse length register, 26.7
+#define SERCOM0_INTENCLR ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM0 + SERCOM_INTENCLR_OFFSET)}) // Interrupt enable clear register, 26.7
+#define SERCOM0_INTENSET ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM0 + SERCOM_INTENSET_OFFSET)}) // Interrupt enable set register, 26.7
+#define SERCOM0_INTFLAG ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM0 + SERCOM_INTFLAG_OFFSET)}) // Interrupt flag status and clear register, 26.7
+#define SERCOM0_STATUS ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM0 + SERCOM_STATUS_OFFSET)}) // Status register, 26.7
+#define SERCOM0_SYNCBUSY ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM0 + SERCOM_SYNCBUSY_OFFSET)}) // Synchronization busy register, 26.7
+#define SERCOM0_DATA ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM0 + SERCOM_DATA_OFFSET)}) // Data register, 26.7
+#define SERCOM0_DBGCTRL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM0 + SERCOM_DBGCTRL_OFFSET)}) // Debug control register, 26.7
+
+// SERCOM1 - Serial Communication Interface 3, chapter 25
+#define SERCOM1 ((unsigned int) 0x42000800) // See product mapping AHB-APB bridge C.
+#define SERCOM1_ptr ((unsigned char*) SERCOM1) // See product mapping AHB-APB bridge C.
+#define SERCOM1_CTRLA ((register_type) {(unsigned char) 4, (unsigned int)(SERCOM1 + SERCOM_CTRLA_OFFSET)}) // Output Clear Register, 23.8.6
+#define SERCOM1_CTRLB ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM1 + SERCOM_CTRLB_OFFSET)}) // Control B register, 26.7
+#define SERCOM1_BAUD ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM1 + SERCOM_BAUD_OFFSET)}) // Baud rate register, 26.7
+#define SERCOM1_RXPL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM1 + SERCOM_RXPL_OFFSET)}) // Receive pulse length register, 26.7
+#define SERCOM1_INTENCLR ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM1 + SERCOM_INTENCLR_OFFSET)}) // Interrupt enable clear register, 26.7
+#define SERCOM1_INTENSET ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM1 + SERCOM_INTENSET_OFFSET)}) // Interrupt enable set register, 26.7
+#define SERCOM1_INTFLAG ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM1 + SERCOM_INTFLAG_OFFSET)}) // Interrupt flag status and clear register, 26.7
+#define SERCOM1_STATUS ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM1 + SERCOM_STATUS_OFFSET)}) // Status register, 26.7
+#define SERCOM1_SYNCBUSY ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM1 + SERCOM_SYNCBUSY_OFFSET)}) // Synchronization busy register, 26.7
+#define SERCOM1_DATA ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM1 + SERCOM_DATA_OFFSET)}) // Data register, 26.7
+#define SERCOM1_DBGCTRL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM1 + SERCOM_DBGCTRL_OFFSET)}) // Debug control register, 26.7
+
+// SERCOM2 - Serial Communication Interface 3, chapter 25
+#define SERCOM2 ((unsigned int) 0x42000800) // See product mapping AHB-APB bridge C.
+#define SERCOM2_ptr ((unsigned char*) SERCOM2) // See product mapping AHB-APB bridge C.
+#define SERCOM2_CTRLA ((register_type) {(unsigned char) 4, (unsigned int)(SERCOM2 + SERCOM_CTRLA_OFFSET)}) // Output Clear Register, 23.8.6
+#define SERCOM2_CTRLB ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM2 + SERCOM_CTRLB_OFFSET)}) // Control B register, 26.7
+#define SERCOM2_BAUD ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM2 + SERCOM_BAUD_OFFSET)}) // Baud rate register, 26.7
+#define SERCOM2_RXPL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM2 + SERCOM_RXPL_OFFSET)}) // Receive pulse length register, 26.7
+#define SERCOM2_INTENCLR ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM2 + SERCOM_INTENCLR_OFFSET)}) // Interrupt enable clear register, 26.7
+#define SERCOM2_INTENSET ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM2 + SERCOM_INTENSET_OFFSET)}) // Interrupt enable set register, 26.7
+#define SERCOM2_INTFLAG ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM2 + SERCOM_INTFLAG_OFFSET)}) // Interrupt flag status and clear register, 26.7
+#define SERCOM2_STATUS ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM2 + SERCOM_STATUS_OFFSET)}) // Status register, 26.7
+#define SERCOM2_SYNCBUSY ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM2 + SERCOM_SYNCBUSY_OFFSET)}) // Synchronization busy register, 26.7
+#define SERCOM2_DATA ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM2 + SERCOM_DATA_OFFSET)}) // Data register, 26.7
+#define SERCOM2_DBGCTRL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM2 + SERCOM_DBGCTRL_OFFSET)}) // Debug control register, 26.7
+
+// SERCOM3 - Serial Communication Interface 3, chapter 25
+#define SERCOM3 ((unsigned int) 0x42000800) // See product mapping AHB-APB bridge C.
+#define SERCOM3_ptr ((unsigned char*) SERCOM3) // See product mapping AHB-APB bridge C.
+#define SERCOM3_CTRLA ((register_type) {(unsigned char) 4, (unsigned int)(SERCOM3 + SERCOM_CTRLA_OFFSET)}) // Output Clear Register, 23.8.6
+#define SERCOM3_CTRLB ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM3 + SERCOM_CTRLB_OFFSET)}) // Control B register, 26.7
+#define SERCOM3_BAUD ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM3 + SERCOM_BAUD_OFFSET)}) // Baud rate register, 26.7
+#define SERCOM3_RXPL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM3 + SERCOM_RXPL_OFFSET)}) // Receive pulse length register, 26.7
+#define SERCOM3_INTENCLR ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM3 + SERCOM_INTENCLR_OFFSET)}) // Interrupt enable clear register, 26.7
+#define SERCOM3_INTENSET ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM3 + SERCOM_INTENSET_OFFSET)}) // Interrupt enable set register, 26.7
+#define SERCOM3_INTFLAG ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM3 + SERCOM_INTFLAG_OFFSET)}) // Interrupt flag status and clear register, 26.7
+#define SERCOM3_STATUS ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM3 + SERCOM_STATUS_OFFSET)}) // Status register, 26.7
+#define SERCOM3_SYNCBUSY ((register_type) {(unsigned char) 4, (unsigned int) (SERCOM3 + SERCOM_SYNCBUSY_OFFSET)}) // Synchronization busy register, 26.7
+#define SERCOM3_DATA ((register_type) {(unsigned char) 2, (unsigned int) (SERCOM3 + SERCOM_DATA_OFFSET)}) // Data register, 26.7
+#define SERCOM3_DBGCTRL ((register_type) {(unsigned char) 1, (unsigned int) (SERCOM3 + SERCOM_DBGCTRL_OFFSET)}) // Debug control register, 26.7
+
+
+
+// TC3 - Timer Counter 3, chapter 30
 #define TC3 ((unsigned int)  0x42002C00) // See product mapping AHB-APB bridge C.
 #define TC3_ptr ((unsigned char*) 0x42002C00) // See product mapping AHB-APB bridge C.
 #define TC3_CTRLA ((register_type) {(unsigned char) 2, (unsigned int) (TC3 + 0x00)}) // Control A register, 30.8.1
