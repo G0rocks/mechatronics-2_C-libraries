@@ -28,6 +28,47 @@ External oscillators:
 enum time_unit {second, millisecond, microsecond};
 
 // FUNCTION DECLARATIONS
+int _get_osc_freq(enum time_unit unit){
+  // Read which clocks in use, return half of the highest frequency in use in Hz for seconds, kHz for ms and MHz for us
+  // Note the waiting for loop takes 2 clock cycles per loop cycle so the returned frequency is half of the clock frequency
+  // Check internal oscillators
+  // Check OSC32K
+
+  // Check OSCULP32K enabled
+  
+  // Check OSC8M enabled
+  if (*SYSCTRL_OSC8M_ptr & (1 << 1)) {
+    switch (unit){
+      case second:
+        return 8000000; // [Hz]
+        break;
+      
+      case millisecond:
+        return 8000;  // [kHz]
+        break;
+
+      case microsecond:
+        return 8;   // [MHz]
+        break;
+      
+      default:
+        break;
+    }
+  }
+
+  // Check DFLL48M
+  // SYSCTRL_DPLLSTATUS_ptr?
+  
+  // Check FDPLL96M
+
+  // Check external oscillators
+  // Check XOSC32K
+
+  // Check XOSC
+
+  return 0;
+}
+
 // Get oscillator frequency
 // CURRENTLY ONLY VALID FOR 8MHz OSCILLATOR
 int _get_osc_freq_halved(enum time_unit unit){
