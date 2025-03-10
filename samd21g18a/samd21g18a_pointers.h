@@ -120,6 +120,29 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 // AHB-APB Bridge C
 //##############################################################
 
+// PAC OFFSETS- Peripheral Access Controller, chapter 11.6
+#define PAC_WPCLR_OFFSET ((unsigned int) 0x00) // Write protection clear register,
+#define PAC_WPSET_OFFSET ((unsigned int) 0x04) // Write protection set register,
+
+// PAC0 - Peripheral Access Controller 0, chapter 11.6
+#define PAC0 ((unsigned int) 0x40000000) // See product mapping AHB-APB bridge C.
+#define PAC0_ptr ((unsigned char*) PAC0) // See product mapping AHB-APB bridge C.
+#define PAC0_WPCLR ((register_type) {(unsigned char) 4, (unsigned int) (PAC0 + PAC_WPCLR_OFFSET)}) // Write protection clear register, 11.6.2.1.1
+#define PAC0_WPSET ((register_type) {(unsigned char) 4, (unsigned int) (PAC0 + PAC_WPSET_OFFSET)}) // Write protection set register, 11.6.2.1.2
+
+// PAC1 - Peripheral Access Controller 1, chapter 11.6
+#define PAC1 ((unsigned int) 0x41000000) // See product mapping AHB-APB bridge C.
+#define PAC1_ptr ((unsigned char*) PAC1) // See product mapping AHB-APB bridge C.
+#define PAC1_WPCLR ((register_type) {(unsigned char) 4, (unsigned int) (PAC1 + PAC_WPCLR_OFFSET)}) // Write protection clear register, 11.6.2.2.1
+#define PAC1_WPSET ((register_type) {(unsigned char) 4, (unsigned int) (PAC1 + PAC_WPSET_OFFSET)}) // Write protection set register, 11.6.2.2.2
+
+// PAC2 - Peripheral Access Controller 2, chapter 11.6
+#define PAC2 ((unsigned int) 0x42000000) // See product mapping AHB-APB bridge C.
+#define PAC2_ptr ((unsigned char*) PAC2) // See product mapping AHB-APB bridge C.
+#define PAC2_WPCLR ((register_type) {(unsigned char) 4, (unsigned int) (PAC2 + PAC_WPCLR_OFFSET)}) // Write protection clear register, 11.6.2.3.1
+#define PAC2_WPSET ((register_type) {(unsigned char) 4, (unsigned int) (PAC2 + PAC_WPSET_OFFSET)}) // Write protection set register, 11.6.2.3.2
+
+
 // SERCOM OFFSETS- Serial Communication Interface, chapter 25
 #define SERCOM_CTRLA_OFFSET ((unsigned int) 0x00) // Control A register, 26.7
 #define SERCOM_CTRLB_OFFSET ((unsigned int) 0x04) // Control B register, 26.7
