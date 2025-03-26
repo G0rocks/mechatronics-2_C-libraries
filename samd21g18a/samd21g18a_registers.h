@@ -55,6 +55,6 @@ char register_wait_for_sync_HIGH(register_type reg, char bit_num, unsigned int a
 /// @param bit_num bit number to wait for
 /// @param attempts number of attempts to wait for synchronization
 /// @return 0 if success, 4 if failed
-char register_wait_for_sync_LOW(register_type reg, char bit_num, unsigned int attempts) {
+char register_wait_for_sync_LOW(register_type reg, char bit_num, unsigned int attempts);
 
 #endif
