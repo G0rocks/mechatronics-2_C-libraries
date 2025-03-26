@@ -143,3 +143,22 @@ char register_wait_for_sync_HIGH(register_type reg, char bit_num, unsigned int a
     }
     return 0;
 }
+
+/// @brief Reads the given bit from the given register until it is LOW. Tries a given number of attempts
+/// @param reg register struct
+/// @param bit_num bit number to wait for
+/// @param attempts number of attempts to wait for synchronization
+/// @return 0 if success, 4 if failed
+char register_wait_for_sync_LOW(register_type reg, char bit_num, unsigned int attempts) {
+    // Waits for the given bit to be synchronized
+    // reg: register struct
+    // bit_num: bit number to wait for
+
+    // Wait for synchronization
+    while ((register_bit_read(reg, bit_num) != 0) && attempts--) {
+        if (attempts == 0) {
+            return 4;  // Error: timeout occurred
+        }
+    }
+    return 0;
+}

@@ -50,4 +50,11 @@ char register_write_whole(register_type reg, int value);
 /// @return 0 if success, -1 if failed
 char register_wait_for_sync_HIGH(register_type reg, char bit_num, unsigned int attempts);
 
+/// @brief Reads the given bit from the given register until it is LOW. Tries a given number of attempts
+/// @param reg register struct
+/// @param bit_num bit number to wait for
+/// @param attempts number of attempts to wait for synchronization
+/// @return 0 if success, 4 if failed
+char register_wait_for_sync_LOW(register_type reg, char bit_num, unsigned int attempts) {
+
 #endif
