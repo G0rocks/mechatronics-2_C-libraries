@@ -45,6 +45,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define SYSCTRL_OSC32K_ptr ((unsigned int*) (SYSCTRL_ptr + 0x18)) // chap 17.8.7
 #define SYSCTRL_OSCULP32K_ptr ((unsigned char*) (SYSCTRL_ptr + 0x1C)) // chap 17.8.8
 #define SYSCTRL_OSC8M_ptr ((unsigned int*) (SYSCTRL_ptr + 0x20)) // chap 17.8.9
+#define SYSCTRL_OSC8M ((register_type) {(unsigned char) 4, (unsigned int)(SYSCTRL_OSC8M_ptr + 0x20)}) // chap 17.8.9
 #define SYSCTRL_DFLLCTRL_ptr ((unsigned short*) (SYSCTRL_ptr + 0x24)) // chap 17.8.10
 #define SYSCTRL_DFLLVAL_ptr ((unsigned int*) (SYSCTRL_ptr + 0x28)) // chap 17.8.11
 #define SYSCTRL_DFLLMUL_ptr ((unsigned int*) (SYSCTRL_ptr + 0x2C)) // chap 17.8.12
@@ -67,6 +68,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define GCLK_ptr ((unsigned char*) 0x40000C00)  // chapter 9 and 12
 #define GCLK_STATUS_ptr ((unsigned int*) (GCLK_ptr + 0x1))   // 15.8.2
 #define GCLK_CLKCTRL_ptr ((unsigned int*)(GCLK_ptr + 0x2))   // 15.8.3
+#define GCLK_CLKCTRL ((register_type) {(unsigned char) 4, (unsigned int)(GCLK_ptr + 0x2)}) // chap 17.8.9
 #define GCLK_GENCTRL_ptr ((unsigned int*)(GCLK_ptr + 0x4))   // 15.8.4
 
 //##############################################################
