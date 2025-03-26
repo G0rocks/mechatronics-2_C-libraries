@@ -9,14 +9,8 @@ For use with the arduino MKR NB 1500 using the processor SAMD21G18A.
 Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
 */
 
+#include "samd21g18a_registers.h"
 #include "samd21g18a_pointers.h"
-
-// Define register type with pointer to register address. Note "register" is a reserved keyword in C, so we use "register_type" instead.
-typedef struct {
-    unsigned char num_bytes;
-    unsigned int address;
-} register_type;
-
 
 // REGISTER FUNCTIONS
 
@@ -127,5 +121,25 @@ char register_write_whole(register_type reg, int value) {
         default:
             return -1;  // An error occured, number of bytes not supported, returning -1
     }
-    return 0;   
+    return 0;
+}
+
+
+/// @brief Reads the given bit from the given register until it is HIGH. Tries a given number of attempts
+/// @param reg register struct
+/// @param bit_num bit number to wait for
+/// @param attempts number of attempts to wait for synchronization
+/// @return 0 if success, 4 if failed
+char register_wait_for_sync_HIGH(register_type reg, char bit_num, unsigned int attempts) {
+    // Waits for the given bit to be synchronized
+    // reg: register struct
+    // bit_num: bit number to wait for
+
+    // Wait for synchronization
+    while (register_bit_read(reg, bit_num) && attempts--) {
+        if (attempts == 0) {
+            return 4;  // Error: timeout occurred
+        }
+    }
+    return 0;
 }
