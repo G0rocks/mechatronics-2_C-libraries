@@ -71,6 +71,12 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define GCLK_CLKCTRL ((register_type) {(unsigned char) 4, (unsigned int)(GCLK_ptr + 0x2)}) // chap 17.8.9
 #define GCLK_GENCTRL_ptr ((unsigned int*)(GCLK_ptr + 0x4))   // 15.8.4
 
+/// WTD - Watchdog timer
+//-------------------------------------
+#define WDT_ptr ((unsigned char*) 0x40001000) // Watchdog timer base address, chap 9, product mapping
+#define WDT_CTRL ((register_type) {(unsigned char) 1, (unsigned int)(WDT_ptr + 0x00)}) // Control register, 18.8.1
+
+
 //##############################################################
 // AHB-APB Bridge B
 //##############################################################
