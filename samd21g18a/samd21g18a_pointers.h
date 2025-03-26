@@ -105,6 +105,39 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A_PMUX_PINS_30_31 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x3F)}) // Peripheral Multiplexing, 23.8.12
 
 #define PORT_A_PINCFG_ptr ((unsigned int*)(PORT_A_ptr  + 0x40)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN0 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x00)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN1 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x01)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN2 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x02)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN3 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x03)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN4 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x04)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN5 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x05)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN6 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x06)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN7 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x07)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN8 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x08)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN9 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x09)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN10 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0A)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN11 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0B)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN12 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0C)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN13 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0D)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN14 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0E)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN15 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x0F)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN16 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x10)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN17 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x11)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN18 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x12)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN19 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x13)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN20 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x14)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN21 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x15)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN22 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x16)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN23 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x17)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN24 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x18)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN25 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x19)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN26 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1A)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN27 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1B)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN28 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1C)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN29 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1D)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN30 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1E)) // Pin Configuration Register, 23.8.13
+#define PORT_A_PINCFG_PIN31 ((register_type) {(unsigned char) 4, (unsigned int))(PORT_A_ptr  + 0x40 + 0x1F)) // Pin Configuration Register, 23.8.13
+
 // PORT B
 #define PORT_B_offset ((unsigned int) 0x80) // PORT B is 0x80 bytes away from PORT A
 //#define PORT_B_DIR_ptr  ((unsigned int*) PORT_A_DIR_ptr + PORT_B_spacing) // Chap, 23.8.1
