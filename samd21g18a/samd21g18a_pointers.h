@@ -95,6 +95,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A_OUT_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x14)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_SET_ptr ((unsigned int*) (PORT_A_ptr  + 0x18)) // Output Set Register, 23.8.7
 #define PORT_A_OUT_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x18)}) // APBBMASK register address, 16.8.10
+#define PORT_A_IN ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x20)}) // 23.8.9
 #define PORT_A_PMUX_PINS_0_1 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x30)}) // Peripheral Multiplexing, 23.8.12
 #define PORT_A_PMUX_PINS_2_3 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x31)}) // Peripheral Multiplexing, 23.8.12
 #define PORT_A_PMUX_PINS_4_5 ((register_type) {(unsigned char) 1, (unsigned int)(PORT_A + 0x32)}) // Peripheral Multiplexing, 23.8.12
@@ -267,7 +268,11 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define TC3_CTRLA ((register_type) {(unsigned char) 2, (unsigned int) (TC3 + 0x00)}) // Control A register, 30.8.1
 
 
-
+// ADC - Analog to Digital Converter, chapter 33
+#define ADC ((unsigned char) 0x42004000) // See product mapping AHB-APB bridge C.
+#define ADC_ptr ((unsigned char*) 0x42004000) // See product mapping AHB-APB bridge C.
+#define ADC_CTRLA ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x00)}) // Control A register, 33.8.1
+#define ADC_STATUS ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x19)}) // 33.8.13
 
 
 #endif // _samd21g18a_pointers_
