@@ -75,7 +75,8 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 //-------------------------------------
 #define WDT_ptr ((unsigned char*) 0x40001000) // Watchdog timer base address, chap 9, product mapping
 #define WDT_CTRL ((register_type) {(unsigned char) 1, (unsigned int)(WDT_ptr + 0x00)}) // Control register, 18.8.1
-
+#define WDT_CLEAR ((register_type) {(unsigned char) 1, (unsigned int)(WDT_ptr + 0x8)}) // Control register, 18.8.8
+#define WDT_CLEAR_KEY 0xA5 // Key to clear watchdog timer, 18.8.8
 
 //##############################################################
 // AHB-APB Bridge B
@@ -86,6 +87,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A ((unsigned int) 0x41004400) // PORT A base address, table 12-1
 #define PORT_A_OFFSET ((unsigned int) 0x00)    // PORT A is 0x00 bytes away from PORT A
 #define PORT_A_DIR_ptr  ((unsigned int*)(PORT_A_ptr)) // Pin direction register (input/output), 23.8.1
+#define PORT_A_DIR_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x04)}) // Output Clear Register, 23.8.6
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
 #define PORT_A_DIR_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x08)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr + 0x10))     // Output register, 23.8.5 for PORT A
