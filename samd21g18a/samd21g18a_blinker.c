@@ -134,8 +134,8 @@ void blink_heartbeat_inverse() {
 }
 
 /// @brief  Blinks a 3 digit number. First blinks success, then the first digit, success, second digit, success, third digit, success.
-/// @param  
-blink_3_digit_number(unsigned int num) {
+/// @param
+void blink_3_digit_number(unsigned int num) {
     unsigned char digit1 = num / 100;
     unsigned char digit2 = (num % 100) / 10;
     unsigned char digit3 = num % 10;
