@@ -79,12 +79,13 @@ void blink_fail_inverse() {
 /// @brief  Blinks n times
 /// @param  n   Number of blinks
 void blink_n_times(unsigned char n) {
+    register_bit_write_HIGH(PORT_A_OUT_SET, 20);
     delay_ms(500);
     for (unsigned char i = 0; i <= n; i++) {
         register_bit_write_HIGH(PORT_A_OUT_SET, 20);
-        delay_ms(250);
+        delay_ms(400);
         register_bit_write_HIGH(PORT_A_OUT_CLR, 20);
-        delay_ms(250);
+        delay_ms(400);
     }
 }
 
