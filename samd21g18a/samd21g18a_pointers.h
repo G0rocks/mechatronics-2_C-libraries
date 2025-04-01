@@ -90,6 +90,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define PORT_A_DIR_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x04)}) // Output Clear Register, 23.8.6
 #define PORT_A_DIR_SET_ptr  ((unsigned int*)(PORT_A_ptr + 0x08)) // Pin direction set register, 23.8.3
 #define PORT_A_DIR_SET ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x08)}) // Output Clear Register, 23.8.6
+#define PORT_A_DIR_TGL ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x0C)}) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_ptr ((unsigned int*)(PORT_A_ptr + 0x10))     // Output register, 23.8.5 for PORT A
 #define PORT_A_OUT_CLR_ptr ((unsigned int*)(PORT_A_ptr + 0x14)) // Output Clear Register, 23.8.6
 #define PORT_A_OUT_CLR ((register_type) {(unsigned char) 4, (unsigned int)(PORT_A + 0x14)}) // Output Clear Register, 23.8.6
