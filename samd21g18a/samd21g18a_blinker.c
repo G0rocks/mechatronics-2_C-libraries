@@ -89,6 +89,22 @@ void blink_n_times(unsigned char n) {
     }
 }
 
+/// @brief Blink strobe short
+void blink_strobe_short() {
+    // Start LED OFF
+    register_bit_write_HIGH(PORT_A_OUT_CLR, 20);
+    delay_ms(100);
+    // Blink 10 times
+    for (unsigned char i = 0; i < 10; i++) {
+        register_bit_write_HIGH(PORT_A_OUT_SET, 20);
+        delay_ms(100);
+        register_bit_write_HIGH(PORT_A_OUT_CLR, 20);
+        delay_ms(100);
+    }
+    // Set LED OFF
+    register_bit_write_HIGH(PORT_A_OUT_CLR, 20);
+}
+
 /// @brief  Blinks two heartbeats
 void blink_heartbeat() {
     // Sign of life

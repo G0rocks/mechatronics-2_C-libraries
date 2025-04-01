@@ -39,6 +39,9 @@ void blink_fail_inverse();
 /// @param  n   Number of blinks
 void blink_n_times(unsigned char n);
 
+/// @brief Blink strobe short
+void blink_strobe_short();
+
 /// @brief  Blinks two heartbeats
 void blink_heartbeat();
 
