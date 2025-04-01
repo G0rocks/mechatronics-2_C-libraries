@@ -270,11 +270,16 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define TC3_CTRLA ((register_type) {(unsigned char) 2, (unsigned int) (TC3 + 0x00)}) // Control A register, 30.8.1
 
 
+
 // ADC - Analog to Digital Converter, chapter 33
 #define ADC ((unsigned char) 0x42004000) // See product mapping AHB-APB bridge C.
 #define ADC_ptr ((unsigned char*) 0x42004000) // See product mapping AHB-APB bridge C.
-#define ADC_CTRLA ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x00)}) // Control A register, 33.8.1
+#define ADC_CTRLA ((register_type) {(unsigned char) 4, (unsigned int) (ADC + 0x00)}) // Control A register, 33.8.1
+#define ADC_SWTRIG ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x0C)}) // 33.8.7
+#define ADC_INPUTCTRL ((register_type) {(unsigned char) 4, (unsigned int) (ADC + 0x10)}) // 33.8.8
+#define ADC_INTFLAG ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x18)}) // 33.8.12
 #define ADC_STATUS ((register_type) {(unsigned char) 1, (unsigned int) (ADC + 0x19)}) // 33.8.13
+#define ADC_RESULT ((register_type) {(unsigned char) 2, (unsigned int) (ADC + 0x1A)}) // 33.8.14
 
 
 #endif // _samd21g18a_pointers_
