@@ -48,8 +48,12 @@ void blink_heartbeat();
 /// @brief  Blinks 2 heartbeats with the OFF period
 void blink_heartbeat_inverse();
 
-/// @brief  Blinks a 3 digit number. First blinks success, then the first digit, success, second digit, success, third digit, success.
+/// @brief  Blinks a 2 digit number. First blinks success, then the first digit, success, second digit, strobe.
 /// @param
-void blink_3_digit_number(unsigned int num);
+void blink_2_digit_number(unsigned char num);
+
+/// @brief  Blinks a 3 digit number. First blinks success, then the first digit, success, second digit, success, third digit, strobe.
+/// @param
+void blink_3_digit_number(unsigned short num);
 
 #endif

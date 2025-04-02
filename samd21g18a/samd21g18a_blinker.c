@@ -150,9 +150,22 @@ void blink_heartbeat_inverse() {
     register_bit_write_HIGH(PORT_A_OUT_CLR, 20);
 }
 
-/// @brief  Blinks a 3 digit number. First blinks success, then the first digit, success, second digit, success, third digit, success.
+/// @brief  Blinks a 2 digit number. First blinks success, then the first digit, success, second digit, strobe.
 /// @param
-void blink_3_digit_number(unsigned int num) {
+void blink_2_digit_number(unsigned char num) {
+    unsigned char digit1 = num / 10;
+    unsigned char digit2 = num % 10;
+
+    blink_success();
+    blink_n_times(digit1);
+    blink_success();
+    blink_n_times(digit2);
+    blink_strobe_short();
+}
+
+/// @brief  Blinks a 3 digit number. First blinks success, then the first digit, success, second digit, success, third digit, strobe.
+/// @param
+void blink_3_digit_number(unsigned short num) {
     unsigned char digit1 = num / 100;
     unsigned char digit2 = (num % 100) / 10;
     unsigned char digit3 = num % 10;
@@ -163,5 +176,5 @@ void blink_3_digit_number(unsigned int num) {
     blink_n_times(digit2);
     blink_success();
     blink_n_times(digit3);
-    blink_success();
+    blink_strobe_short();
 }
