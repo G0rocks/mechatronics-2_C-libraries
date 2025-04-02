@@ -78,6 +78,25 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #define WDT_CLEAR ((register_type) {(unsigned char) 1, (unsigned int)(WDT_ptr + 0x8)}) // Control register, 18.8.8
 #define WDT_CLEAR_KEY 0xA5 // Key to clear watchdog timer, 18.8.8
 
+/// EIC - External Interrupt Controller
+//-------------------------------------
+#define EIC_ptr ((unsigned char*) 0x40001800) // External Interrupt Controller base address, chap 9, product mapping
+#define EIC_CTRL ((register_type) {(unsigned char) 1, (unsigned int)(EIC_ptr + 0x00)}) // Control register, 21.8.1
+#define EIC_STATUS ((register_type) {(unsigned char) 1, (unsigned int)(EIC_ptr + 0x01)}) // Status register, 21.8.2
+#define EIC_NMICTRL ((register_type) {(unsigned char) 1, (unsigned int)(EIC_ptr + 0x02)}) // Non-Maskable Interrupt Control register, 21.8.3
+#define EIC_NMIFLAG ((register_type) {(unsigned char) 1, (unsigned int)(EIC_ptr + 0x03)}) // Non-Maskable Interrupt Flag Status and Clear register, 21.8.4
+#define EIC_EVCTRL ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x04)}) // Event Control register, 21.8.5
+#define EIC_INTENCLR ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x08)}) // Interrupt Enable Clear register, 21.8.6
+#define EIC_INTENSET ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x0C)}) // Interrupt Enable Set register, 21.8.7
+#define EIC_INTFLAG ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x10)}) // Interrupt Flag Status and Clear register, 21.8.8
+#define EIC_WAKEUP ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x14)}) // Wake-Up Enable register, 21.8.9
+#define EIC_CONFIG0 ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x18)}) // Configuration n register, 21.8.10
+#define EIC_CONFIG1 ((register_type) {(unsigned char) 4, (unsigned int)(EIC_ptr + 0x1C)}) // Configuration n register, 21.8.10
+
+
+
+
+
 //##############################################################
 // AHB-APB Bridge B
 //##############################################################
