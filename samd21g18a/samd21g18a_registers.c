@@ -9,8 +9,8 @@ For use with the arduino MKR NB 1500 using the processor SAMD21G18A.
 Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_DataSheet_DS40001882F.pdf
 */
 
-#include "samd21g18a_registers.h"
-#include "samd21g18a_pointers.h"
+#include <samd21g18a_registers.h>
+#include <samd21g18a_pointers.h>
 
 // REGISTER FUNCTIONS
 
@@ -30,6 +30,16 @@ char register_bit_read(register_type reg, char bit_num) {
         default:
             return -1;  // An error occured, number of bytes not supported, returning -1
     }
+}
+
+// Register bits read short
+unsigned short register_bits_read_short(register_type reg, char bit_num, char num_bits) {
+    // Reads the value of the given register
+    // reg: register struct
+    // bit_num: bit number to read
+    // Make bitmask
+    unsigned int bitmask = (2^num_bits) - 1;  // Creates a bitmask with the given number of bits set to 1
+    return (short)((*(unsigned short*)reg.address >> bit_num) & bitmask);  // Returns for short register
 }
 
 // register bit write LOW

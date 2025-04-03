@@ -12,7 +12,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #ifndef _samd21g18a_pointers_
 #define _samd21g18a_pointers_
 
-#include "samd21g18a_registers.h"
+#include <samd21g18a_registers.h>
 
 // DEFINITIONS
 // Format for register

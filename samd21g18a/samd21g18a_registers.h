@@ -13,7 +13,7 @@ Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/SAM_D21_DA1_Family_D
 #ifndef _samd21g18a_registers_
 #define _samd21g18a_registers_
 
-#include "samd21g18a_pointers.h"
+#include <samd21g18a_pointers.h>
 
 
 
@@ -28,6 +28,9 @@ typedef struct {
 
 // register bit read
 char register_bit_read(register_type reg, char bit_num);
+
+// Register bits read
+unsigned int register_bits_read(register_type reg, char bit_num, char num_bits);
 
 // register bit write LOW
 char register_bit_write_LOW(register_type reg, char bit_num);
