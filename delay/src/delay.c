@@ -21,9 +21,9 @@ External oscillators:
 */
 
 // INCLUDE
-#include "delay.h"
-#include "../../samd21g18a/samd21g18a_pins.h" // SAMD21G18A pointers
-#include "../../samd21g18a/samd21g18a_pointers.h" // SAMD21G18A pointers
+#include <delay.h>
+#include <samd21g18a_pins.h>
+#include <samd21g18a_pointers.h>
 
 enum time_unit {second, millisecond, microsecond};
 
